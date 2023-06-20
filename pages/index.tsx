@@ -134,11 +134,11 @@ const Home = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <Flex direction="column" height="100vh" backgroundColor="#323232">
+      <Flex direction="column" height="100vh" backgroundColor="#0c141e">
         {/* <Header /> */}
-        {/* <Center height="100%" zIndex={1}>
+        <Center height="100%" zIndex={1}>
           <Flex direction="column" align="center">
-            <Box background="white" padding="4" borderRadius="4" width="360px">
+            {/* <Box background="white" padding="4" borderRadius="4" width="360px">
               <form onSubmit={handleSubmit}>
                 <Stack spacing="4">
                   <Heading>Join a Space</Heading>
@@ -171,13 +171,14 @@ const Home = () => {
                   </Button>
                 </Stack>
               </form>
-            </Box>
-            <HStack marginTop="1rem">
+            </Box> */}
+            <Heading color="white">Thank You.</Heading>
+            {/* <HStack marginTop="1rem">
               <MicrophoneButton />
               <CameraButton />
-            </HStack>
+            </HStack> */}
           </Flex>
-        </Center> */}
+        </Center>
       </Flex>
 
       <ErrorModal

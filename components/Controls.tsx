@@ -16,7 +16,7 @@ export default function Controls(): JSX.Element {
     useDisclosure();
 
   const leaveSpacePage = useCallback(() => {
-    router.push("/");
+    router.reload();
   }, [router]);
 
   const promptForACR = useCallback(() => {
