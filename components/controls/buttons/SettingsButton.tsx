@@ -36,15 +36,6 @@ export default function SettingsButton({ onLeave }: Props): JSX.Element {
 
   const smallWindowWidth = (width && width < 480) || false;
 
-  const shareLink = () => {
-    navigator.clipboard.writeText(
-      `${window.location.protocol}//${window.location.host}/space/${router.query["id"]}`
-    );
-    if (!toast.isActive(ToastIds.COPY_LINK_TOAST_ID)) {
-      toast(copyLinkToastConfig);
-    }
-  };
-
   return (
     <>
       <RenameParticipantModal
@@ -69,7 +60,6 @@ export default function SettingsButton({ onLeave }: Props): JSX.Element {
             <MenuItem disabled={isLocalScreenShare} onClick={onRenameModalOpen}>
               Change Name
             </MenuItem>
-            <MenuItem onClick={shareLink}>Copy Invite Link</MenuItem>
             {smallWindowWidth && <MenuItem onClick={onLeave}>Leave</MenuItem>}
           </MenuList>
         </Menu>

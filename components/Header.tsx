@@ -3,8 +3,6 @@ import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
 import { Flex, Spacer } from "@chakra-ui/react";
 
-import muxLogo from "../public/mux-logo.svg";
-
 export default function Header(): JSX.Element {
   return (
     <Flex
@@ -15,21 +13,7 @@ export default function Header(): JSX.Element {
       backgroundColor="#292929"
       borderBottom="1px solid #e8e8e8"
     >
-      <Flex alignItems="center" padding="10px" width="290px">
-        <a
-          href="https://www.mux.com/real-time-video"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image
-            priority
-            alt="logo"
-            width={150}
-            src={muxLogo}
-            style={{ height: "auto" }}
-          />
-        </a>
-      </Flex>
+      <Flex alignItems="center" padding="10px" width="290px"></Flex>
       <Spacer />
       <Flex alignItems="center" padding="10px">
         <a

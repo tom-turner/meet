@@ -7,11 +7,8 @@ import useWindowDimensions from "hooks/useWindowDimension";
 import Gallery from "./Gallery";
 import Timer from "./Timer";
 import ScreenShareRenderer from "./renderers/ScreenShareRenderer";
-import ChatRenderer from "./renderers/ChatRenderer";
-import ChatContext from "context/Chat";
 
 const headerHeight = 80;
-const chatWidth = 300;
 
 export default function Meeting(): JSX.Element {
   let gap = 10;
@@ -21,10 +18,9 @@ export default function Meeting(): JSX.Element {
     isScreenShareActive,
     spaceEndsAt,
   } = useSpace();
-  const { isChatOpen } = useContext(ChatContext);
   const { width = 0, height = 0 } = useWindowDimensions();
 
-  const availableWidth = width - (isChatOpen && width > 800 ? chatWidth : 0);
+  const availableWidth = width;
 
   const paddingY = height < 600 ? 10 : 40;
   const paddingX = availableWidth < 800 ? 40 : 60;
@@ -82,7 +78,6 @@ export default function Meeting(): JSX.Element {
           participantsPerPage={participantsPerPage}
         />
       </Flex>
-      <ChatRenderer show={width > 800 && isChatOpen} />
     </Flex>
   );
 }

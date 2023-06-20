@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useCallback, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-
+import { useRouter } from "next/router";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface UserState {
@@ -30,10 +30,12 @@ interface Props {
 }
 
 export const UserProvider = ({ children }: Props) => {
+  const router = useRouter();
+  const { name } = router.query;
   const [interactionRequired, setInteractionRequired] = useState(true);
   const [participantName, setParticipantName] = useLocalStorage(
     "participantName",
-    ""
+    name?.toString() || "Guest"
   );
 
   // This should never change unless we reload

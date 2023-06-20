@@ -18,6 +18,7 @@ import UserInteractionPrompt from "components/UserInteractionPrompt";
 
 import starfield from "../../public/starfield-bg.jpg";
 import { TEMPORARY_SPACE_PASSTHROUGH } from "lib/constants";
+import { get } from "http";
 
 const BackgroundImageWrap = styled.div`
   position: fixed;
@@ -119,17 +120,9 @@ const SpacePage: NextPage<Props> = ({
 
       <Flex height="100vh" overflow="hidden" direction="column">
         <BackgroundImageWrap>
-          <Image
-            alt="Starfield"
-            src={starfield}
-            placeholder="blur"
-            quality={100}
-            fill
-            sizes="100vw"
-            style={{
-              objectFit: "cover",
-            }}
-          />
+          <div
+            style={{ height: "100vh", width: "100%", background: "#0c141e" }}
+          ></div>
         </BackgroundImageWrap>
 
         {/* required to handle auto play https://developer.chrome.com/blog/autoplay/ */}

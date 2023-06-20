@@ -25,8 +25,6 @@ import { useUserMedia } from "hooks/useUserMedia";
 import MicrophoneButton from "components/controls/buttons/MicrophoneButton";
 import CameraButton from "components/controls/buttons/CameraButton";
 
-import muxLogo from "../public/mux-logo.svg";
-
 interface Props {
   onInteraction: () => void;
   participantNameRef: MutableRefObject<string>;
@@ -89,13 +87,6 @@ export default function UserInteractionPrompt({
       alignItems="center"
       justifyContent="center"
     >
-      <Image
-        priority
-        alt="logo"
-        width={300}
-        src={muxLogo}
-        style={{ zIndex: 0, height: "auto" }}
-      />
       <form onSubmit={handleSubmit}>
         <Stack spacing="4">
           <FormControl
@@ -132,7 +123,7 @@ export default function UserInteractionPrompt({
             variant="flushed"
             color="white"
           >
-            Join Space
+            Join
           </Button>
         </Stack>
       </form>

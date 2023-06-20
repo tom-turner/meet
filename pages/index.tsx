@@ -135,8 +135,8 @@ const Home = () => {
       </Head>
 
       <Flex direction="column" height="100vh" backgroundColor="#323232">
-        <Header />
-        <Center height="100%" zIndex={1}>
+        {/* <Header /> */}
+        {/* <Center height="100%" zIndex={1}>
           <Flex direction="column" align="center">
             <Box background="white" padding="4" borderRadius="4" width="360px">
               <form onSubmit={handleSubmit}>
@@ -177,7 +177,7 @@ const Home = () => {
               <CameraButton />
             </HStack>
           </Flex>
-        </Center>
+        </Center> */}
       </Flex>
 
       <ErrorModal
