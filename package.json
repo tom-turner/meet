@@ -1,5 +1,5 @@
 {
-  "name": "mux-meet-nextjs",
+  "name": "venuo-meet",
   "private": true,
   "scripts": {
     "dev": "next dev",
