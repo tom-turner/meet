@@ -75,6 +75,8 @@ type Props = {
 };
 
 export const SpaceProvider: React.FC<Props> = ({ children }) => {
+  const router = useRouter();
+  const { disableScreenshare } = router.query;
   const { userWantsMicMuted, microphoneDeviceId, cameraOff, cameraDeviceId } =
     useContext(UserContext);
   const { getMicrophone, getCamera } = useContext(UserMediaContext);
@@ -92,7 +94,7 @@ export const SpaceProvider: React.FC<Props> = ({ children }) => {
   const [isLocalScreenShareSupported, setIsLocalScreenShareSupported] =
     useState(
       typeof window !== "undefined"
-        ? !!navigator?.mediaDevices?.getDisplayMedia
+        ? !disableScreenshare && !!navigator?.mediaDevices?.getDisplayMedia
         : false
     );
   const [screenShareTrack, setScreenShareTrack] = useState<Track>();
@@ -110,7 +112,9 @@ export const SpaceProvider: React.FC<Props> = ({ children }) => {
   }, [participantScreenSharing]);
 
   useEffect(() => {
-    setIsLocalScreenShareSupported(!!navigator.mediaDevices.getDisplayMedia);
+    setIsLocalScreenShareSupported(
+      !disableScreenshare && !!navigator.mediaDevices.getDisplayMedia
+    );
   }, []);
 
   const isScreenShareActive = useMemo(() => {
@@ -167,8 +171,6 @@ export const SpaceProvider: React.FC<Props> = ({ children }) => {
       userWantsMicMuted,
     ]
   );
-
-  const router = useRouter();
 
   const joinSpace = useCallback(
     async (jwt: string, endsAt?: number, displayName?: string) => {
